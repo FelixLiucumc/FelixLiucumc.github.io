@@ -5,7 +5,7 @@ navbar:
   right:
     - icon: fa-regular fa-circle-user
       text: "Resume"
-      href: about.html
+      href: resume.html
     - icon: fa-envelope fa-lg
       text: "Contact"
       href: mailto:<yl5508@cumc.columbia.edu>
