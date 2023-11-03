@@ -1,0 +1,147 @@
+---
+title: "p8105_hw4_yl5508"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+It's a proj for HW4 about INTERACTIVITY.
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(scales)
+library(plotly)
+library(p8105.datasets)
+library(flexdashboard)
+```
+
+```{r load noaa}
+data("ny_noaa")
+noaa_clean =
+  ny_noaa |>
+  janitor::clean_names() |>
+  drop_na()
+
+USC23 =
+  noaa_clean |>
+  filter(id == "USC00300023") |>
+  mutate(tmax = as.numeric(tmax), tmin = as.numeric(tmin)) |>
+  mutate(year = as.numeric(str_extract(date, "^.{4}"))) |>
+  mutate(month = as.numeric(str_extract(date, "(?<=^.{5}).{2}"))) |>
+  mutate(t_range = tmax - tmin) |>
+  mutate(t_ave = (tmax+tmin)/2) |>
+  select(-c(id, snwd)) |>
+  select(date, year, month, everything())
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+ave_prcp_t =
+  USC23 |>
+  group_by(year) |>
+  summarise(ave_prcp = mean(prcp), ave_t = mean(t_ave))
+
+trend_prcp_t =
+  ggplot(ave_prcp_t, aes(x = year)) +
+  geom_point(aes(y = ave_t, color = "Average Temperature")) +
+  geom_smooth(aes(y = ave_t, color = "Average Temperature"), se = FALSE) +
+  geom_point(aes(y = rescale(ave_prcp, c(0, 50)), color = "Average Precipitation")) +
+  geom_smooth(aes(y = rescale(ave_prcp, c(0, 50)), color = "Average Precipitation"), se = FALSE, size = 0.8) +
+  scale_y_continuous(
+    breaks = pretty_breaks(5),
+    name = "Precipitation",
+    sec.axis = sec_axis(~rescale(.,c(-60, 200)),
+    name = "Temperature")
+  ) +
+  scale_color_manual(label = c("Average Precipitation", "Average Temperature"), values = c("#ee8f71","#C10534")) +
+  labs(
+    title = "Comparing Average Precipitation and Average Temperature among Years",
+    x = "Year",
+    color = "Legend"
+  ) +
+  scale_x_continuous(breaks = seq(min(ave_prcp_t$year), max(ave_prcp_t$year+1), by = 5)) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplotly(trend_prcp_t)
+
+
+trend_prcp_t <- ggplot(ave_prcp_t, aes(x = year)) +
+  geom_point(aes(y = ave_prcp, color = "Average Precipitation")) +
+  geom_smooth(aes(y = ave_prcp, color = "Average Precipitation"), se = FALSE, size = 0.8) +
+  geom_point(aes(y = ave_t, color = "Average Temperature")) +
+  geom_smooth(aes(y = ave_t, color = "Average Temperature"), se = FALSE) +
+  scale_y_continuous(
+    name = "Average Precipitation",
+    sec.axis = sec_axis(trans = ~ ., name = "Average Temperature")
+  ) +
+  scale_color_manual(values = c("Average Precipitation" = "lightblue", "Average Temperature" = "pink")) +
+  labs(
+    title = "Comparing Average Precipitation and Average Temperature among Years",
+    x = "Year",
+    color = "Legend"
+  ) +
+  scale_x_continuous(breaks = seq(min(ave_prcp_t$year), max(ave_prcp_t$year), by = 5)) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+ave_prcp_month =
+  USC23 |>
+  group_by(year, month) |>
+  summarise(ave_prcp = mean(prcp)) |>
+  mutate(year = as.character(year))
+
+box_month = 
+  ave_prcp_month |>
+  ggplot(aes(x = fct_reorder(year, ave_prcp), y = ave_prcp, color = year)) +
+  geom_boxplot() +
+  viridis::scale_color_viridis(discrete = TRUE, option = "viridis") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+box_month
+ggplotly(box_month)
+
+ave_prcp_month |>
+  plot_ly(y = ~ave_prcp, x = ~fct_reorder(year, ave_prcp), color = ~fct_reorder(year, ave_prcp), type = "box", colors = "viridis")
+
+```
+
+### Chart C
+
+```{r}
+snow_tprcp =
+  USC23 |>
+  filter(snow > 0)
+
+t_prcp =
+  snow_tprcp |>
+  #mutate(text_label = str_c("Price: $", price, "\nRating: ", rating)) |> 
+  plot_ly(
+    x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
+    color = ~snow, alpha = 0.5)
+t_prcp
+```

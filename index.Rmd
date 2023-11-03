@@ -1,0 +1,31 @@
+---
+title: "p8105_hw4_yl5508"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+It's a proj for HW4 about INTERACTIVITY.\
+
+## Problem 1
+
+### This page has infomation about me!
+
+Now I'm a first-year student majoring in Biostat at Mailman School of Public Health, CUMC. It's a fresh start for me, I'd love to find out what I can achieve here.\
+
+### Links for further understanding!
+
+I have my [Resume](Resume.html) here! Hope you can learn something about me.\
+
+## Problem 2
+
+### Now let's generate some graphs!
+
+The dataset I used is gathered from NOAA (National Oceanic and Atmospheric Association) National Climatic Data Center. I do some research on the connection between `temperature`, `snowfall` and `precipitation`. Click the link below for graphs.\
+
+* [Dashboard](dashboard.html)
+
+
+
+
