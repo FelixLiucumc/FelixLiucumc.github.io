@@ -144,6 +144,13 @@ t_prcp =
   #mutate(text_label = str_c("Price: $", price, "\nRating: ", rating)) |> 
   plot_ly(
     x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
-    color = ~snow, alpha = 0.5)
+    color = ~snow, alpha = 0.5,
+    text = ~paste("tmax: ", tmax, "<br>tmin: ", tmin)
+) |>
+layout(
+    title = "Connection between Snowfall and Temperature",
+    xaxis = list(title = "tmax"),
+    yaxis = list(title = "tmin")
+)
 t_prcp
 ```
