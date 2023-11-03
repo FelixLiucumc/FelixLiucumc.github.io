@@ -72,33 +72,6 @@ trend_prcp_t =
     axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplotly(trend_prcp_t)
-
-
-trend_prcp_t <- ggplot(ave_prcp_t, aes(x = year)) +
-  geom_point(aes(y = ave_prcp, color = "Average Precipitation")) +
-  geom_smooth(aes(y = ave_prcp, color = "Average Precipitation"), se = FALSE, size = 0.8) +
-  geom_point(aes(y = ave_t, color = "Average Temperature")) +
-  geom_smooth(aes(y = ave_t, color = "Average Temperature"), se = FALSE) +
-  scale_y_continuous(
-    name = "Average Precipitation",
-    sec.axis = sec_axis(trans = ~ ., name = "Average Temperature")
-  ) +
-  scale_color_manual(values = c("Average Precipitation" = "lightblue", "Average Temperature" = "pink")) +
-  labs(
-    title = "Comparing Average Precipitation and Average Temperature among Years",
-    x = "Year",
-    color = "Legend"
-  ) +
-  scale_x_continuous(breaks = seq(min(ave_prcp_t$year), max(ave_prcp_t$year), by = 5)) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = 15, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 10),
-    axis.title = element_text(size = 12),
-    legend.text = element_text(size = 10),
-    axis.text.x = element_text(angle = 45, hjust = 1)
-  )
-
 ```
 
 Column {data-width=350}
@@ -128,7 +101,8 @@ box_month
 ggplotly(box_month)
 
 ave_prcp_month |>
-  plot_ly(y = ~ave_prcp, x = ~fct_reorder(year, ave_prcp), color = ~fct_reorder(year, ave_prcp), type = "box", colors = "viridis")
+  plot_ly(y = ~ave_prcp, x = ~fct_reorder(year, ave_prcp),
+          color = ~fct_reorder(year, ave_prcp), type = "box", colors = "viridis")
 
 ```
 
@@ -145,7 +119,7 @@ t_prcp =
   plot_ly(
     x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
     color = ~snow, alpha = 0.5,
-    text = ~paste("tmax: ", tmax, "<br>tmin: ", tmin)
+    text = ~str_c("tmax: ", tmax, "\ntmin: ", tmin)
 ) |>
 layout(
     title = "Connection between Snowfall and Temperature",
