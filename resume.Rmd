@@ -1,0 +1,66 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+## EDUCATION
+
+**Columbia University, Mailman School of Public Health**[NYC, US]{style="float: right; font-weight: bold;"}\
+MS candidate in Biostatistics (Theory and Methods track)
+
+::: {style="text-align: right; float: right;"}
+Sep 2023 - May 2025
+:::
+
+-   Major Courses: Pharmaceutical Statistics, Clinical Methodology, Analysis of Longitudinal Data
+
+**Shanghai Jiao Tong University**[Shanghai, China]{style="float: right; font-weight: bold;"}\
+BS in Biology
+
+::: {style="text-align: right; float: right;"}
+Sep 2018 - Jun 2022
+:::
+
+-   Major Courses: Biostatistics and Experimental Design, Bioinformatics, Preventive Medical Science
+
+## RESEARCH EXPERIENCE
+
+**Identify Cell Subpopulation and Corresponding Pathway by Bayesian BiClustering**\
+Research Assistant[Jul - May 2022]{style="text-align: right; float: right;"}
+
+-   Completed clustering of sample space and feature space simultaneously and identified cell subtypes and their intrinsic driver genes in different brain regions.
+
+-   Obtained functional cell groups and corresponding functional gene modules (FGM) according to the clustering results of cells and genes under different conditions.
+
+-   Secured a low dimensional representation of each cell through estimating the posterior distribution, and successfully removed batch effects by using variational auto-encoder (VAE).
+
+**Improve Genomic Prognostic Accuracy in Chinese Holstein Cows based on Machine Learning Method**\
+Researcher[Oct 2021 - Apr 2022]{style="text-align: right; float: right;"}
+
+-   Identified body traits and reproductive trait. Picked up the genomic prognostic routine GBLUP, the machine learning method LASSO, MLP, CNN, and RNN as analysis methods.
+
+-   Concluded that machine learning methods are superior to conventional methods in the genomic prognosis of reproductive traits and inferior to traditional methods in analysing body traits.\
+
+**Study on Self-Assembled Multivalent Subunit Vector Vaccine**\
+Researcher[Nov 2020 - May 2021]{style="text-align: right; float: right;"}\
+
+-   Conceived a vector plasmid carrying ferritin and extracted the hemagglutinin HA and F protein sequences.
+
+-   Achieved the recombinant plasmid transfecting into cells during the eukaryotic expression phase and detected protein expression by western blot. The protein particles could be used as subunit vaccines for clinical trials.
+
+## RELEVANT EXPERIENCE
+
+**Sanjin Pharmaceuticals Drug Discovery Center**[China]{style="float: right; font-weight: bold;"}\
+Research Fellow at the Centre for Drug Development[Jul - Aug 2021]{style="text-align: right; float: right;"}
+
+-   Determined the technical route to enhance the medicinal value of Centella Asiatica through fermentation based on a careful study of literature in the related field.
+
+-   Concluded that Centella Asiatica has anti-inflammatory, wound repair and scar removal effects.\
+
+## SKILLS
+
+R, Linux, Python, SAS, Microsoft Excel, PowerPoint, Word.\
