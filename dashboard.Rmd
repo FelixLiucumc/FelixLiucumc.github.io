@@ -1,5 +1,5 @@
 ---
-title: "p8105_hw4_yl5508"
+title: "dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -54,9 +54,7 @@ trend_prcp_t =
   geom_smooth(aes(y = rescale(ave_prcp, c(0, 50)), color = "Average Precipitation"), se = FALSE, size = 0.8) +
   scale_y_continuous(
     breaks = pretty_breaks(5),
-    name = "Precipitation",
-    sec.axis = sec_axis(~rescale(.,c(-60, 200)),
-    name = "Temperature")
+    name = "Prcp/Temp"
   ) +
   scale_color_manual(label = c("Average Precipitation", "Average Temperature"), values = c("#ee8f71","#C10534")) +
   labs(

@@ -15,7 +15,7 @@ MS candidate in Biostatistics (Theory and Methods track)
 Sep 2023 - May 2025
 :::
 
--   Major Courses: Pharmaceutical Statistics, Clinical Methodology, Analysis of Longitudinal Data
+-   Major Courses: Pharmaceutical Statistics, Analysis of Longitudinal Data
 
 **Shanghai Jiao Tong University**[Shanghai, China]{style="float: right; font-weight: bold;"}\
 BS in Biology
@@ -24,7 +24,7 @@ BS in Biology
 Sep 2018 - Jun 2022
 :::
 
--   Major Courses: Biostatistics and Experimental Design, Bioinformatics, Preventive Medical Science
+-   Major Courses: Biostatistics and Experimental Design, Bioinformatics
 
 ## RESEARCH EXPERIENCE
 
