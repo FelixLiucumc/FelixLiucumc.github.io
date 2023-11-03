@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 ## EDUCATION
@@ -54,7 +53,7 @@ Researcher[Nov 2020 - May 2021]{style="text-align: right; float: right;"}\
 
 ## RELEVANT EXPERIENCE
 
-**Sanjin Pharmaceuticals Drug Discovery Center**[China]{style="float: right; font-weight: bold;"}\
+**Sanjin Pharmaceuticals Drug Discovery Center**\
 Research Fellow at the Centre for Drug Development[Jul - Aug 2021]{style="text-align: right; float: right;"}
 
 -   Determined the technical route to enhance the medicinal value of Centella Asiatica through fermentation based on a careful study of literature in the related field.

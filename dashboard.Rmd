@@ -38,7 +38,7 @@ USC23 =
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Comparing Average Precipitation and Average Temperature among Years
 
 ```{r}
 ave_prcp_t =
@@ -101,13 +101,12 @@ trend_prcp_t <- ggplot(ave_prcp_t, aes(x = year)) +
     axis.text.x = element_text(angle = 45, hjust = 1)
   )
 
-
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Average Precipitation Each Month, ordered by Median
 
 ```{r}
 ave_prcp_month =
@@ -121,6 +120,11 @@ box_month =
   ggplot(aes(x = fct_reorder(year, ave_prcp), y = ave_prcp, color = year)) +
   geom_boxplot() +
   viridis::scale_color_viridis(discrete = TRUE, option = "viridis") +
+  labs(
+    title = "Average Precipitation Each Month",
+    x = "Year",
+    y = "Precipitation"
+  ) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 box_month
 ggplotly(box_month)
@@ -130,7 +134,7 @@ ave_prcp_month |>
 
 ```
 
-### Chart C
+### Connection between Snowfall and Temperature
 
 ```{r}
 snow_tprcp =

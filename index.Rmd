@@ -12,11 +12,13 @@ It's a proj for HW4 about INTERACTIVITY.\
 
 ### This page has infomation about me!
 
+<div style="text-align: center;"><img src="image/image.jpg" style="width:75%"></div>
+
 Now I'm a first-year student majoring in Biostat at Mailman School of Public Health, CUMC. It's a fresh start for me, I'd love to find out what I can achieve here.\
 
 ### Links for further understanding!
 
-I have my [Resume](Resume.html) here! Hope you can learn something about me.\
+I have my [Resume](resume.html) here! Hope you can learn something about me.\
 
 ## Problem 2
 
