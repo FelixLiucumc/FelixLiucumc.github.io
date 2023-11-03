@@ -10,7 +10,6 @@ It's a proj for HW4 about INTERACTIVITY.
 
 ```{r setup, message = FALSE}
 library(tidyverse)
-library(scales)
 library(plotly)
 library(p8105.datasets)
 library(flexdashboard)
